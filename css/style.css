@@ -1,3 +1,13 @@
 body{
-    background-color: aqua;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+}
+
+#game-screen{
+    margin-top: 30%;
+    width: 550px;
+    height: 350px;
+    border-radius: 15px;
+    background-color: rgb(205, 49, 49);
 }
