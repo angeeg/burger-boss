@@ -6,9 +6,12 @@ body {
 }
 
 #game-screen {
+  display: grid;
+  grid-template-columns: [col1] 50px [col2] 50px [col3] 50px [col4] 50px [col5] 50px [col6] 50px [col7] 50px [col8] 50px [col9] 50px [col10] 50px [col11] 50px [col12] 50px [col13] 50px;
+  grid-template-rows: [row1] 50px [row2] 50px [row3] 50px [row4] 50px [row5] 50px [row6] 50px [row7] 50px [row8] 50px;
   margin-top: 15%;
-  width: 550px;
-  height: 350px;
+  width: 650px;
+  height: 400px;
   border-radius: 15px;
   background-color: rgb(216, 179, 179);
 }
@@ -64,3 +67,5 @@ td{
     width: 100px;
     height: 100px;
 }
+
+/* ==================== GAME PAGE STYLING ========================= */
