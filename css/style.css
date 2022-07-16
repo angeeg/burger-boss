@@ -1,13 +1,65 @@
-body{
-    background-color: beige;
-    display: flex;
-    justify-content: center;
+/* ====================  HOMEPAGE STYLING ========================= */
+body {
+  background-color: beige;
+  display: flex;
+  justify-content: center;
 }
 
-#game-screen{
-    margin-top: 30%;
-    width: 550px;
-    height: 350px;
-    border-radius: 15px;
-    background-color: rgb(205, 49, 49);
+#game-screen {
+  margin-top: 15%;
+  width: 550px;
+  height: 350px;
+  border-radius: 15px;
+  background-color: rgb(216, 179, 179);
+}
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+}
+
+#start-btn {
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+  height: 20px;
+  width: 40px;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: rgb(240, 145, 76);
+  margin-left: 40%;
+}
+
+#start-btn:hover {
+  color: crimson;
+  background-color: rgb(222, 165, 125);
+}
+
+/* ==================== CHARACTER PAGE STYLING ========================= */
+
+.title {
+  margin-top: 5%;
+  text-align: center;
+}
+
+table{
+    margin: auto;
+    text-align: center;
+    font-weight: 600;
+}
+
+td{
+    padding: 10px;
+}
+
+.chef-img {
+  border: solid 1px black;
+  vertical-align: middle;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+}
+
+.chef-img:hover{
+ opacity: 50%;
 }
