@@ -11,7 +11,10 @@
 body {
   background-color: beige;
   font-family: "MyWebFont";
-
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
   /* background-repeat: repeat-x;
   background-size: 14%;
   background-image: url(assets/images/burger-gif.gif);
@@ -25,11 +28,12 @@ body {
   grid-template-rows: [row1] 100px [row2] 100px [row3] 100px [row4] 100px [row5] 100px [row6] 100px [row7] 100px [row8] 100px [row9] 100px;
   grid-gap: 10px;
   /* margin-top: 15%; */
-  /* width: 650px;
-  height: 400px; */
+
   justify-content: center;
   align-content: center;
-  height: 100vh;
+  border: solid 1px black;
+  height: fit-content;
+  width: fit-content;
 }
 
 .game-heading {
@@ -101,10 +105,11 @@ a:hover{
 }
 
 /* ==================== GAME PAGE STYLING ========================= */
-.whole-ingredients{
+.whole-ingredients-img{
   width: 100px;
   height: 100px;
 }
+
 
 /* .whole-ingredients-ul {
   grid-area: 7 / 3 / span 2 / span 8;
@@ -152,3 +157,9 @@ a:hover{
   grid-row: 8 / 9 ;
   grid-column: 8 / 9 ;
 } 
+
+.burger-builder {
+  text-align: center;
+  grid-row: 6 / 9;
+  grid-column: 10 / 12;
+}

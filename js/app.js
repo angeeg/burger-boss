@@ -1,7 +1,11 @@
 // ========== IMPORTED VARIABLES FROM HTML ========== //
+
+// chef characters 
 const elphyChef = document.querySelector(".elphy-chef-choice")
 const piggyChef = document.querySelector(".piggy-chef-choice")
 const chickyChef = document.querySelector(".chicky-chef-choice")
+
+// 
 
 
 // ======================= CLASSES ======================= //
