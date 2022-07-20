@@ -27,8 +27,6 @@ body {
   /* margin-top: 15%; */
   /* width: 650px;
   height: 400px; */
-  border-radius: 15px;
-  background-color: rgb(179, 44, 44);
   justify-content: center;
   align-content: center;
   height: 100vh;
@@ -107,3 +105,50 @@ a:hover{
   width: 100px;
   height: 100px;
 }
+
+/* .whole-ingredients-ul {
+  grid-area: 7 / 3 / span 2 / span 8;
+  list-style: none;
+  display: inline-table;
+
+} */
+
+.top-bun{
+  grid-row: 7 / 8 ;
+  grid-column: 4 / 5 ;
+}
+ 
+.burger-patty{
+  grid-row: 7 / 8 ;
+  grid-column: 5 / 6;
+  /* height: 50px; */
+}
+
+.whole-cheese{
+  grid-row: 7 / 8;
+  grid-column: 6 / 7 ;
+}
+
+.whole-lettuce{
+  grid-row: 7 / 8 ;
+  grid-column: 7 / 8 ;
+}
+
+.whole-tomato{
+  grid-row: 8 / 9 ;
+  grid-column: 4 / 5 ;
+}
+.whole-onion{
+  grid-row: 8 / 9 ;
+  grid-column: 5 / 6 ;
+}
+
+.whole-pickles{
+  grid-row: 8 / 9 ;
+  grid-column: 6 / 7 ;
+}
+
+.bottom-bun{
+  grid-row: 8 / 9 ;
+  grid-column: 7 / 8 ;
+} 
