@@ -21,8 +21,8 @@ body {
 
 #game-screen {
   display: grid;
-  grid-template-columns: [col1] 100px [col2] 100px [col3] 100px [col4] 100px [col5] 100px [col6] 100px [col7] 100px [col8] 100px [col9] 100px;
-  grid-template-rows: [row1] 100px [row2] 100px [row3] 100px [row4] 100px [row5] 100px [row6] 100px;
+  grid-template-columns: [col1] 100px [col2] 100px [col3] 100px [col4] 100px [col5] 100px [col6] 100px [col7] 100px [col8] 100px [col9] 100px [col10] 100px [col11] 100px [col12] 100px;
+  grid-template-rows: [row1] 100px [row2] 100px [row3] 100px [row4] 100px [row5] 100px [row6] 100px [row7] 100px [row8] 100px [row9] 100px;
   grid-gap: 10px;
   /* margin-top: 15%; */
   /* width: 650px;
@@ -103,3 +103,7 @@ a:hover{
 }
 
 /* ==================== GAME PAGE STYLING ========================= */
+.whole-ingredients{
+  width: 100px;
+  height: 100px;
+}
