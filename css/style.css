@@ -115,40 +115,40 @@ a:hover{
 
 .top-bun{
   grid-row: 7 / 8 ;
-  grid-column: 4 / 5 ;
+  grid-column: 5 / 6 ;
 }
  
 .burger-patty{
   grid-row: 7 / 8 ;
-  grid-column: 5 / 6;
+  grid-column: 6 / 7;
   /* height: 50px; */
 }
 
 .whole-cheese{
   grid-row: 7 / 8;
-  grid-column: 6 / 7 ;
+  grid-column: 7 / 8 ;
 }
 
 .whole-lettuce{
-  grid-row: 7 / 8 ;
-  grid-column: 7 / 8 ;
+  grid-row: 7 / 8;
+  grid-column: 8 / 9 ;
 }
 
 .whole-tomato{
   grid-row: 8 / 9 ;
-  grid-column: 4 / 5 ;
-}
-.whole-onion{
-  grid-row: 8 / 9 ;
   grid-column: 5 / 6 ;
 }
-
-.whole-pickles{
+.whole-onion{
   grid-row: 8 / 9 ;
   grid-column: 6 / 7 ;
 }
 
-.bottom-bun{
+.whole-pickles{
   grid-row: 8 / 9 ;
   grid-column: 7 / 8 ;
+}
+
+.bottom-bun{
+  grid-row: 8 / 9 ;
+  grid-column: 8 / 9 ;
 } 
