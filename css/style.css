@@ -162,4 +162,12 @@ a:hover{
   text-align: center;
   grid-row: 6 / 9;
   grid-column: 10 / 12;
+  width: 75px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.burger-builder>img{
+  margin-bottom: -20%;
 }
