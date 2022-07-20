@@ -1,3 +1,9 @@
+// ========== IMPORTED VARIABLES FROM HTML ========== //
+const elphyChef = document.querySelector(".elphy-chef-choice")
+const piggyChef = document.querySelector(".piggy-chef-choice")
+const chickyChef = document.querySelector(".chicky-chef-choice")
+
+
 // ======================= CLASSES ======================= //
 
 // build a class for the hamburgers 
@@ -18,15 +24,27 @@ class Player {
         this.player = ""
         this.avatar = ""
     }
-    playerAvatars = []
+    // playerChefs = []
 
-    addAvatarToLocalStorage() {
-        // when players choose their avatar save it to local storage  
+    addElphyChefToSessionStorage() {
+        let chefName = document.querySelector(".elphy-chef-name")
+        // when players choose their chef save it to local storage  
+        sessionStorage.setItem("player1Chef", `${chefName}`)
             // when player 2's turn comes pull their avatar from local storage
             // if player 1 ends up winning, pull their avatar out for the winner page
     }
 
-    addScoreToLocalStorage() {
+    addPiggyChefToSessionStorage() {
+        let chefName = document.querySelector(".piggy-chef-name")
+        sessionStorage.setItem("player1Chef", `${chefName}`)
+    }
+
+    addChickyChefToSessionStorage() {
+        let chefName = document.querySelector(".chicky-chef-name")
+        sessionStorage.setItem("player1Chef", `${chefName}`)
+    }
+
+    addScoreToSessionStorage() {
         // after the player's round save their score to local storage 
             // at the end of the game compare both players' scores to determine winner
 
@@ -68,6 +86,12 @@ class Game {
         this.timeLimit = "" // 2 min round 
     }
 
+    savePlayerInfo() {
+        elphyChef.addEventListener("click", Player.addElphyChefToSessionStorage)
+        piggyChef.addEventListener("click", Player.addPiggyChefToSessionStorage)
+        chickyChef.addEventListener("click", Player.addChickyChefToSessionStorage)
+    }
+
     startGame() {
         console.log("Burger boss has begun")
     }
@@ -77,5 +101,4 @@ class Game {
     }
 }
     
-
 

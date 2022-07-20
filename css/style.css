@@ -67,6 +67,11 @@ body {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 table {
   margin: auto;
   text-align: center;
@@ -90,9 +95,11 @@ td {
   border-radius: 50%;
 }
 
-.chef-img:hover {
+
+a:hover{
   width: 100px;
   height: 100px;
+  font-size: larger;
 }
 
 /* ==================== GAME PAGE STYLING ========================= */
