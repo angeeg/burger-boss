@@ -111,15 +111,24 @@ td {
 }
 
 /* whole ingredient section design */
+.whole-ingredients{
+  /* border: solid 1px black; */
+  width: 300px;
+  grid-row: 4 / 5 ;
+  grid-column: 3 / 7;
+}
+
 .whole-ingredient-list{
   list-style: none;
 
 }
 
+.whole-ingredient-list>li{
+  display: inline;
+}
+
 
 .whole-ingredients-img{
-  width: 75px;
-  height: 75px;
   text-decoration: none;
 }
 
@@ -127,56 +136,43 @@ td {
   opacity: 90%;
 }
 
-/* .top-bun{
-  grid-row: 5 / 6 ;
-  grid-column: 3 / 4 ;
+.top-bun-img{
+  height: 30px;
+  width: 50px;
 }
  
-.burger-patty{
-  grid-row: 5 / 6 ;
-  grid-column: 4 / 5;
-}
-
-.whole-cheese{
-  grid-row: 5 / 6;
-  grid-column: 5 / 6 ;
-}
-
-.whole-lettuce{
-  grid-row: 5 / 6;
-  grid-column: 6 / 7 ;
-}
-
-.whole-tomato{
-  grid-row: 6 / 7 ;
-  grid-column: 5 / 6 ;
-}
-.whole-onion{
-  grid-row: 6 / 7 ;
-  grid-column: 6 / 7 ;
-}
-
-.whole-pickles{
-  grid-row: 6 / 7 ;
-  grid-column: 4 / 5 ;
-}
-
-.bottom-bun{
-  grid-row: 6 / 7 ;
-  grid-column: 3 / 4 ;
-}  */
-
 .burger-patty-img{
+  height: 20px;
+  width: 50px;
+}
+
+.whole-cheese-img{
+  height: 40px;
+  width: 40px;
+}
+
+.whole-lettuce-img{
+  height: 40px;
+  width: 40px;
+}
+
+.whole-tomato-img{
   height: 40px;
 }
 
-.bottom-bun-img{
+.whole-onion-img{
+  height: 40px;
+}
+
+.whole-pickles-img{
   height: 50px;
 }
 
-.top-bun-img{
-  height: 50px;
+.bottom-bun-img{
+  height: 30px;
+  width: 50px;
 }
+
 
 /* working order burger builder design */
 .burger-builder {
