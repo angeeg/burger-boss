@@ -242,16 +242,20 @@ class Game {
 }
 
  // create a timer that will countdown from 1 minute .. maybe 2 min
- let totalMin = 2 // this will be 2 minutes 
+ let totalMin = 1 // 2 min - how long we want the timer to run 
  let time = totalMin * 60 // multiplying by 60 seconds to get total seconds
 
 // function to run the timer
- const startCountdownTimer = () => {
+ const startCountdown = () => {
     const minutes = Math.floor(time / 60)
     let seconds = time % 60
-
-    timerHTML.innerHTML = `TIMER : ${minutes}:${seconds}`
+    // display timer in game html page 
+    timerHTML.innerHTML = `TIMER ${minutes}:${seconds}`
     time--
+
+    if(minutes < 0 && seconds < 0){
+        timerHTML.innerHTML = "GAME OVER"
+    }
  }
  
- setInterval(startCountdownTimer, 1000)
+ setInterval(startCountdown, 1000)
