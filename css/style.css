@@ -14,7 +14,6 @@ body {
   display: grid;
   justify-content: center;
   align-content: center;
-  height: 100vh;
   /* background-repeat: repeat-x;
   background-size: 14%;
   background-image: url(assets/images/burger-gif.gif);
@@ -23,17 +22,16 @@ body {
 }
 
 #game-screen {
-  display: grid;
-  grid-template-columns: [col1] 100px [col2] 100px [col3] 100px [col4] 100px [col5] 100px [col6] 100px [col7] 100px [col8] 100px [col9] 100px [col10] 100px [col11] 100px [col12] 100px;
-  grid-template-rows: [row1] 100px [row2] 100px [row3] 100px [row4] 100px [row5] 100px [row6] 100px [row7] 100px [row8] 100px [row9] 100px;
-  grid-gap: 10px;
-  /* margin-top: 15%; */
 
-  justify-content: center;
-  align-content: center;
+  display: grid;
+  grid-template-columns: [col1] 100px [col2] 100px [col3] 100px [col4] 100px [col5] 100px [col6] 100px [col7] 100px [col8] 100px;
+  grid-template-rows: [row1] 100px [row2] 100px [row3] 100px [row4] 100px [row5] 100px;
   border: solid 1px black;
-  height: fit-content;
   width: fit-content;
+  margin-bottom: 25%;
+  justify-items: center;
+  align-items: center;
+
 }
 
 .game-heading {
@@ -98,76 +96,103 @@ td {
 }
 
 
-a:hover{
+.chef-img:hover{
   width: 100px;
   height: 100px;
   font-size: larger;
 }
 
 /* ==================== GAME PAGE STYLING ========================= */
-.whole-ingredients-img{
-  width: 100px;
-  height: 100px;
+
+.game-screen-on-game-page{
+  background: url("./assets/images/kitchen-bg.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* whole ingredient section design */
+.whole-ingredient-list{
+  list-style: none;
+
 }
 
 
-/* .whole-ingredients-ul {
-  grid-area: 7 / 3 / span 2 / span 8;
-  list-style: none;
-  display: inline-table;
+.whole-ingredients-img{
+  width: 75px;
+  height: 75px;
+  text-decoration: none;
+}
 
-} */
+.whole-ingredients-img:hover{
+  opacity: 90%;
+}
 
-.top-bun{
-  grid-row: 7 / 8 ;
-  grid-column: 5 / 6 ;
+/* .top-bun{
+  grid-row: 5 / 6 ;
+  grid-column: 3 / 4 ;
 }
  
 .burger-patty{
-  grid-row: 7 / 8 ;
-  grid-column: 6 / 7;
-  /* height: 50px; */
+  grid-row: 5 / 6 ;
+  grid-column: 4 / 5;
 }
 
 .whole-cheese{
-  grid-row: 7 / 8;
-  grid-column: 7 / 8 ;
+  grid-row: 5 / 6;
+  grid-column: 5 / 6 ;
 }
 
 .whole-lettuce{
-  grid-row: 7 / 8;
-  grid-column: 8 / 9 ;
+  grid-row: 5 / 6;
+  grid-column: 6 / 7 ;
 }
 
 .whole-tomato{
-  grid-row: 8 / 9 ;
+  grid-row: 6 / 7 ;
   grid-column: 5 / 6 ;
 }
 .whole-onion{
-  grid-row: 8 / 9 ;
+  grid-row: 6 / 7 ;
   grid-column: 6 / 7 ;
 }
 
 .whole-pickles{
-  grid-row: 8 / 9 ;
-  grid-column: 7 / 8 ;
+  grid-row: 6 / 7 ;
+  grid-column: 4 / 5 ;
 }
 
 .bottom-bun{
-  grid-row: 8 / 9 ;
-  grid-column: 8 / 9 ;
-} 
+  grid-row: 6 / 7 ;
+  grid-column: 3 / 4 ;
+}  */
 
+.burger-patty-img{
+  height: 40px;
+}
+
+.bottom-bun-img{
+  height: 50px;
+}
+
+.top-bun-img{
+  height: 50px;
+}
+
+/* working order burger builder design */
 .burger-builder {
   text-align: center;
-  grid-row: 6 / 9;
-  grid-column: 10 / 12;
+  grid-row: 4 / 5 ;
+  grid-column: 7 / 9;
   width: 75px;
   display: grid;
   justify-content: center;
   align-content: center;
 }
 
+.burger-builder>h3{
+  margin-bottom: 40px;
+}
+
 .burger-builder>img{
-  margin-bottom: -20%;
+  margin-top: -20%;
 }
