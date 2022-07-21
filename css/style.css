@@ -110,6 +110,11 @@ td {
   background-repeat: no-repeat;
 }
 
+.timer {
+  grid-row: 1 / 2;
+  grid-column: 8 /9 ;
+}
+
 /* whole ingredient section design */
 .whole-ingredients{
   /* border: solid 1px black; */

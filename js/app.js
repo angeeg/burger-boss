@@ -5,6 +5,9 @@ const elphyChef = document.querySelector(".elphy-chef-choice");
 const piggyChef = document.querySelector(".piggy-chef-choice");
 const chickyChef = document.querySelector(".chicky-chef-choice");
 
+// game timer
+const timerHTML = document.getElementById("countdown-timer")
+
 // whole-ingredients
 const topBun = document.querySelector(".top-bun");
 const burgerPatty = document.querySelector(".burger-patty");
@@ -217,9 +220,38 @@ class Game {
     chickyChef.addEventListener("click", Player.addChickyChefToSessionStorage);
   }
 
+  createOrder() {
+
+  }
+
   startGame() {
+    // begin 2 minute timer 
+
+    
+    // create a div that will contain burger order (eventually will be blank notepad picture)
+
+    // setInterval for when orders will be sent in 
+        // if orders waiting for 8 seconds start flashing red 
+        // if orders waiting for 15 seconds remove order and deduct points  
+
+    
     console.log("Burger boss has begun");
   }
 
   sendInCustomers() {}
 }
+
+ // create a timer that will countdown from 1 minute .. maybe 2 min
+ let totalMin = 2 // this will be 2 minutes 
+ let time = totalMin * 60 // multiplying by 60 seconds to get total seconds
+
+// function to run the timer
+ const startCountdownTimer = () => {
+    const minutes = Math.floor(time / 60)
+    let seconds = time % 60
+
+    timerHTML.innerHTML = `TIMER : ${minutes}:${seconds}`
+    time--
+ }
+ 
+ setInterval(startCountdownTimer, 1000)
