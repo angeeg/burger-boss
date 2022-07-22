@@ -6,7 +6,7 @@ const piggyChef = document.querySelector(".piggy-chef-choice");
 const chickyChef = document.querySelector(".chicky-chef-choice");
 
 // game timer
-const timerHTML = document.getElementById("countdown-timer")
+const timerHTML = document.getElementById("countdown-timer");
 
 // whole-ingredients
 const topBun = document.querySelector(".top-bun");
@@ -221,41 +221,50 @@ class Game {
   }
 
   createOrder() {
+      const burgerOrders = document.querySelector(".orders")
+      let newOrder = document.createElement("div")
+      newOrder.innerText = "This will be the burger order"
+      burgerOrders.appendChild(newOrder)
 
   }
 
   startGame() {
-    // begin 2 minute timer 
-
-    
-    // create a div that will contain burger order (eventually will be blank notepad picture)
-
-    // setInterval for when orders will be sent in 
-        // if orders waiting for 8 seconds start flashing red 
-        // if orders waiting for 15 seconds remove order and deduct points  
-
-    
     console.log("Burger boss has begun");
+    // begin 2 minute timer
+    setInterval(startCountdown, 1000);
+    setInterval(this.createOrder, 10000)
   }
 
-  sendInCustomers() {}
+  sendInOrders() {
+    // create a div that will contain burger order (eventually will be blank notepad picture)
+    // setInterval for when orders will be sent in
+    // if orders waiting for 8 seconds start flashing red
+    // if orders waiting for 15 seconds remove order and deduct points
+  }
 }
+// instantiating new game
+const game = new Game();
+console.log(game);
 
- // create a timer that will countdown from 1 minute .. maybe 2 min
- let totalMin = 1 // 2 min - how long we want the timer to run 
- let time = totalMin * 60 // multiplying by 60 seconds to get total seconds
+// ===========TIMER LOGIC============ //
+
+// create a timer that will countdown from 1 minute .. maybe 2 min
+let totalMin = 1; // 2 min - how long we want the timer to run
+let time = totalMin * 60; // multiplying by 60 seconds to get total seconds
 
 // function to run the timer
- const startCountdown = () => {
-    const minutes = Math.floor(time / 60)
-    let seconds = time % 60
-    // display timer in game html page 
-    timerHTML.innerHTML = `TIMER ${minutes}:${seconds}`
-    time--
+const startCountdown = () => {
+  const minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+  // display timer in game html page
+  timerHTML.innerHTML = `TIMER ${minutes}:${seconds}`;
+  time--;
 
-    if(minutes < 0 && seconds < 0){
-        timerHTML.innerHTML = "GAME OVER"
-    }
- }
- 
- setInterval(startCountdown, 1000)
+  if (minutes < 0 && seconds < 0) {
+    timerHTML.innerHTML = "GAME OVER";
+  }
+};
+
+// ===============INITIATE GAME=============== //
+
+game.startGame();

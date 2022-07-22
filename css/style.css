@@ -115,6 +115,12 @@ td {
   grid-column: 8 /9 ;
 }
 
+/* order section design */
+.orders {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
 /* whole ingredient section design */
 .whole-ingredients{
   /* border: solid 1px black; */
