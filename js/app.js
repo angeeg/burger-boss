@@ -5,6 +5,10 @@ const elphyChef = document.querySelector(".elphy-chef-choice");
 const piggyChef = document.querySelector(".piggy-chef-choice");
 const chickyChef = document.querySelector(".chicky-chef-choice");
 
+// start buttons
+// const player1Start = document.querySelector("#start-btn-1")
+// const player2Start = document.querySelector("#start-btn-2")
+
 // game timer in top right corner
 const timerHTML = document.getElementById("countdown-timer");
 
@@ -179,6 +183,18 @@ class Player {
     this.score = "";
   }
 
+//   startPlayer1(){
+//       const player = document.getElementById("player-name")
+//       this.name = "PLAYER 1"
+//       player.innerHTML = `${this.name}`
+//   }
+
+//   startPlayer2(){
+//     const player = document.getElementById("player-name")
+//     this.name = "PLAYER 2"
+//     player.innerHTML = `${this.name}`
+// }
+
   addScoreToSessionStorage() {
     // after the player's round save their score to local storage
     // at the end of the game compare both players' scores to determine winner
@@ -253,7 +269,7 @@ class Game {
     // loop through order to create list item for each ingredient
     for (let i = 0; i < newOrder.length; i++) {
       let listItem = document.createElement("li");
-      listItem.style.listStyle = "none";
+    //   listItem.style.listStyle = "none";
       listItem.style.fontSize = "12px";
       let ingredient = newOrder[i];
       listItem.innerHTML = ingredient.className;
@@ -285,7 +301,7 @@ class Game {
     let image = document.querySelector(".builder-img")
     
 
-    if(orderArr.length === workingOrder.length){
+    if((orderArr.length / 2) === workingOrder.length){
         player.score += 10
     } else {
         player.score -= 5
@@ -346,6 +362,7 @@ const startCountdown = () => {
   if (minutes < 0 && seconds < 0) {
     timerHTML.innerHTML = "GAME OVER";
     clearInterval(game.createOrder);
+    window.location = "https://angeeg.github.io/burger-boss/index.html"
   }
 };
 
@@ -375,6 +392,11 @@ console.log(game.createOrder());
 game.startGame();
 
 // =================EVENT LISTENERS===================== //
+
+// start btns 
+// player1Start.addEventListener("click", player.startPlayer1)
+// player2Start.addEventListener("click", player.startPlayer2)
+
 
 // event listeners for whole ingredients while building burger
 topBun.addEventListener("click", burger.addTopBun);

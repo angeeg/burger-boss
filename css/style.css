@@ -34,19 +34,19 @@ body {
 
 }
 
-.game-heading {
-  grid-column: 3 / 8;
+/* .game-heading {
+  grid-column: 3 / 7;
   grid-row: 2 / 3;
-  text-align: center;
   font-size: 60px;
-}
+} */
 
-#start-btn {
+.start-btn {
   text-decoration: none;
+  text-align: center;
   color: black;
   font-weight: 600;
-  height: 20px;
-  width: 40px;
+  height: 30px;
+  width: 80px;
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
@@ -54,53 +54,39 @@ body {
   margin-left: 40%;
 }
 
-#start-btn:hover {
+
+.start-btn:hover {
   color: brown;
   background-color: rgb(222, 165, 125);
 }
 
-/* ==================== CHARACTER PAGE STYLING ========================= */
-
-.title {
-  grid-column: 3 / 8;
-  grid-row: 3 / 4;
-  text-align: center;
+#start-btn1{
+  grid-row: 5 / 6;
+  grid-column: 1 / 2;
 }
 
-a {
-  text-decoration: none;
-  color: black;
+#start-btn2{
+  grid-row: 5 / 6;
+  grid-column: 7 / 8;
 }
 
-table {
-  margin: auto;
-  text-align: center;
-  font-weight: 600;
+.homepage-screen{
+  background: url("./assets/images/burger-gif.gif");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgb(159, 245, 121);
 }
 
-td {
-  padding: 10px;
-}
-
-.character-avatars {
-  grid-column: 3 /8;
-  grid-row: 4 /6;
-}
-
-.chef-img {
-  border: solid 1px black;
-  vertical-align: middle;
-  width: 85px;
-  height: 85px;
-  border-radius: 50%;
+.homepage-screen>h1{
+  font-size: 40px;
+  grid-row: 1 / 2;
+  grid-column: 3 / 7;
 }
 
 
-.chef-img:hover{
-  width: 100px;
-  height: 100px;
-  font-size: larger;
-}
+
+
 
 /* ==================== GAME PAGE STYLING ========================= */
 
@@ -113,6 +99,11 @@ td {
 .timer {
   grid-row: 1 / 2;
   grid-column: 8 /9 ;
+}
+
+.player-name {
+  grid-row: 1 / 2;
+  grid-column: 3 / 7 ;
 }
 
 .score{
@@ -229,3 +220,47 @@ td {
 .serve-btn:hover{
   opacity: 50%;
 }
+
+
+/* ==================== CHARACTER PAGE STYLING ========================= */
+/* 
+.title {
+  grid-column: 3 / 8;
+  grid-row: 3 / 4;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+table {
+  margin: auto;
+  text-align: center;
+  font-weight: 600;
+}
+
+td {
+  padding: 10px;
+}
+
+.character-avatars {
+  grid-column: 3 /8;
+  grid-row: 4 /6;
+}
+
+.chef-img {
+  border: solid 1px black;
+  vertical-align: middle;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+}
+
+
+.chef-img:hover{
+  width: 100px;
+  height: 100px;
+  font-size: larger;
+} */
