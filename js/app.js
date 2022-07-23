@@ -18,8 +18,15 @@ const wholeOnion = document.querySelector(".whole-onion");
 const wholePickles = document.querySelector(".whole-pickles");
 const bottomBun = document.querySelector(".bottom-bun");
 
+const burgerOrders = document.querySelector(".orders");
 // working order section
 const burgerBuilder = document.querySelector(".burger");
+// empty arr to hold ingredients added to working order
+let workingOrder = []
+
+// serve button 
+const serveBtn = document.querySelector(".serve-btn")
+
 
 // ======================= CLASSES ======================= //
 
@@ -40,120 +47,126 @@ class Burger {
   addTopBun() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/top-bun.png";
-    image.className = "top-bun-builder"
+    image.className = "top-bun-builder bun";
     burgerBuilder.appendChild(image);
     console.log("top bun added!");
+    workingOrder.push("bun")
+    console.log(workingOrder)
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
-      image.style.display = "none";
-      console.log("top bun taken off!");
+      burgerBuilder.removeChild(image);
+      console.log("top bun removed!");
     });
   }
 
   addBurgerPatty() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/burger.png";
-    image.className = "burger-patty-builder"
+    image.className = "burger-patty-builder patty";
     burgerBuilder.appendChild(image);
     console.log("burger added!");
+    workingOrder.push("patty")
+    console.log(workingOrder)
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
-      image.style.display = "none";
-      console.log("burger patty taken off!");
+      burgerBuilder.removeChild(image);
+      console.log("burger patty removed!");
     });
   }
 
   addCheese() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/yellow-cheese.png";
-    image.className = "cheese-builder"
+    image.className = "cheese-builder cheese";
     burgerBuilder.appendChild(image);
     console.log("cheese added!");
+    workingOrder.push("cheese")
+    console.log(workingOrder)
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
-      image.style.display = "none";
-      console.log("cheese taken off!");
+      burgerBuilder.removeChild(image);
+      console.log("cheese removed!");
     });
   }
 
   addLettuce() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/lettuce.png";
-    image.className = "lettuce-builder"
+    image.className = "lettuce-builder lettuce";
     burgerBuilder.appendChild(image);
     console.log("lettuce added!");
+    workingOrder.push("lettuce")
+    console.log(workingOrder)
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
-      image.style.display = "none";
-      console.log("lettuce taken off!");
+      burgerBuilder.removeChild(image);
+      console.log("lettuce removed!");
     });
   }
 
   addTomato() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/tomato.png";
-    image.className = "tomato-builder"
+    image.className = "tomato-builder tomato";
     burgerBuilder.appendChild(image);
     console.log("tomato added!");
+    workingOrder.push("tomato")
+    console.log(workingOrder)
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
-      image.style.display = "none";
-      console.log("tomato taken off!");
+      burgerBuilder.removeChild(image);
+      console.log("tomato removed!");
     });
   }
 
   addOnion() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/onion.png";
-    image.className = "onion-builder"
+    image.className = "onion-builder onion";
     burgerBuilder.appendChild(image);
     console.log("onion added!");
+    workingOrder.push("onion")
+    console.log(workingOrder)
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
-      image.style.display = "none";
-      console.log("onion taken off!");
+      burgerBuilder.removeChild(image);
+      console.log("onion removed!");
     });
   }
 
   addPickles() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/pickles.png";
-    image.className = "pickles-builder"
+    image.className = "pickles-builder pickles";
     burgerBuilder.appendChild(image);
     console.log("pickles added!");
+    workingOrder.push("pickles")
+    console.log(workingOrder)
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
-      image.style.display = "none";
-      console.log("pickles taken off!");
+      burgerBuilder.removeChild(image);
+      console.log("pickles removed");
     });
   }
 
   addBottomBun() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/bottom-bun.png";
-    image.className = "bottom-bun-builder"
+    image.className = "bottom-bun-builder bun";
     burgerBuilder.appendChild(image);
     console.log("bottom-bun added!");
+    workingOrder.push("bun")
+    console.log(workingOrder)
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
-      image.style.display = "none";
-      console.log("bottom-bun taken off!");
+      burgerBuilder.removeChild(image);
+      console.log("bottom-bun removed!");
     });
   }
 }
 // instantiate new burger object
 const burger = new Burger();
 console.log(burger);
-
-// event listeners for whole ingredients while building burger
-topBun.addEventListener("click", burger.addTopBun);
-burgerPatty.addEventListener("click", burger.addBurgerPatty);
-wholeCheese.addEventListener("click", burger.addCheese);
-wholeLettuce.addEventListener("click", burger.addLettuce);
-wholeTomato.addEventListener("click", burger.addTomato);
-wholeOnion.addEventListener("click", burger.addOnion);
-wholePickles.addEventListener("click", burger.addPickles);
-bottomBun.addEventListener("click", burger.addBottomBun);
 
 // build a class for players
 class Player {
@@ -219,35 +232,58 @@ class Game {
     for (let i = 0; i < addOns.length; i++) {
       order.push(addOns[i]);
     }
-    // return randomized order 
-    return order 
+    // return randomized order
+    return order;
   }
 
   sendInOrder() {
     let newOrder = game.createOrder();
     // console.log(newOrder)
-    const burgerOrders = document.querySelector(".orders");
+    
     // create a div that will contain burger order
     let order = document.createElement("div");
-    // create a list to display ingredients 
+    // create a list to display ingredients
     let list = document.createElement("ul");
 
     // loop through order to create list item for each ingredient
     for (let i = 0; i < newOrder.length; i++) {
       let listItem = document.createElement("li");
       listItem.style.listStyle = "none";
-      listItem.style.fontSize = "12px"
+      listItem.style.fontSize = "12px";
       let ingredient = newOrder[i];
-      listItem.innerHTML = ingredient.className
+      listItem.innerHTML = ingredient.className;
       list.appendChild(listItem);
     }
-   
+
     order.appendChild(list);
+    order.className = "order"
     order.style.padding = "20px";
     burgerOrders.appendChild(order);
     console.log("sendInOrder()", `${order}`);
     // if orders waiting for 8 seconds start flashing red
     // if orders waiting for 15 seconds remove order and deduct points
+  }
+
+  serveOrder(){
+      console.log("servebtn", "ORDER BEING SERVED")
+    //   arr of ingredients in order 
+    let orderArr = game.createOrder();
+
+    let order = document.querySelector(".order")
+    burgerOrders.removeChild(burgerOrders.firstElementChild)
+    
+
+
+    // for(let i = 0; i < orderArr.length; i++){
+    //     for(let j = 0; j < workingOrder.length; j++){
+    //         if(orderArr[i] === workingOrder[j]){  
+    //             let order = document.getElementsById("order")
+    //             burgerOrders.removeChild(order)
+    //         }
+    //     }
+    // }
+
+    workingOrder = []
   }
 
   startGame() {
@@ -307,24 +343,18 @@ const getRandomIngredients = () => {
 console.log(game.createOrder());
 game.startGame();
 
-// ================CODE TO COME BACK TO WHEN REFACTORING================= //
 
-// build a class for customer
-// class Customer {
-//   constructor() {
-//     this.order = "";
-//     this.timeLimit = ""; // 30 seconds  - customer will wait this long until leaving, if customer leaves without order player loses points
-//   }
+// =================EVENT LISTENERS===================== //
 
-//   createOrder() {
-//     // randomly select how many and which ingredients to have on burger
-//     // return the order
-//   }
+// event listeners for whole ingredients while building burger
+topBun.addEventListener("click", burger.addTopBun);
+burgerPatty.addEventListener("click", burger.addBurgerPatty);
+wholeCheese.addEventListener("click", burger.addCheese);
+wholeLettuce.addEventListener("click", burger.addLettuce);
+wholeTomato.addEventListener("click", burger.addTomato);
+wholeOnion.addEventListener("click", burger.addOnion);
+wholePickles.addEventListener("click", burger.addPickles);
+bottomBun.addEventListener("click", burger.addBottomBun);
 
-//   leaveWithBurger() {
-//     // make customer disappear from UI
-//     // add points to current player's score
-//   }
-
-//   leaveWithoutBurger() {}
-// }
+// serve btn listener 
+serveBtn.addEventListener("click", game.serveOrder)
