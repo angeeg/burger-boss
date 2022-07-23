@@ -1,11 +1,11 @@
-// ========== IMPORTED VARIABLES FROM HTML ========== //
+// ========== VARIABLES IMPORTED FROM HTML ========== //
 
 // chef characters
 const elphyChef = document.querySelector(".elphy-chef-choice");
 const piggyChef = document.querySelector(".piggy-chef-choice");
 const chickyChef = document.querySelector(".chicky-chef-choice");
 
-// game timer
+// game timer in top right corner 
 const timerHTML = document.getElementById("countdown-timer");
 
 // whole-ingredients
@@ -34,14 +34,6 @@ class Burger {
     this.onion = false;
     this.bottomBun = true;
   }
-
-  //   removeIngredient() {
-  //     // erase ingredient from working order if clicked on
-  //     image.addEventListener("click", () => {
-  //       image.style.display = "none";
-  //       console.log("lettuce taken off!");
-  //     });
-  //   }
 
   addTopBun() {
     let image = document.createElement("img");
@@ -140,18 +132,19 @@ class Burger {
   }
 }
 // instantiate new burger object
-const burgerOrder = new Burger();
-console.log(burgerOrder);
+const burger = new Burger();
+console.log(burger);
+console.log(typeof burger.tomato)
 
-// event listeners for ingredients while building burger
-topBun.addEventListener("click", burgerOrder.addTopBun);
-burgerPatty.addEventListener("click", burgerOrder.addBurgerPatty);
-wholeCheese.addEventListener("click", burgerOrder.addCheese);
-wholeLettuce.addEventListener("click", burgerOrder.addLettuce);
-wholeTomato.addEventListener("click", burgerOrder.addTomato);
-wholeOnion.addEventListener("click", burgerOrder.addOnion);
-wholePickles.addEventListener("click", burgerOrder.addPickles);
-bottomBun.addEventListener("click", burgerOrder.addBottomBun);
+// event listeners for whole ingredients while building burger
+topBun.addEventListener("click", burger.addTopBun);
+burgerPatty.addEventListener("click", burger.addBurgerPatty);
+wholeCheese.addEventListener("click", burger.addCheese);
+wholeLettuce.addEventListener("click", burger.addLettuce);
+wholeTomato.addEventListener("click", burger.addTomato);
+wholeOnion.addEventListener("click", burger.addOnion);
+wholePickles.addEventListener("click", burger.addPickles);
+bottomBun.addEventListener("click", burger.addBottomBun);
 
 // build a class for players
 class Player {
@@ -221,23 +214,24 @@ class Game {
   }
 
   createOrder() {
-      const burgerOrders = document.querySelector(".orders")
-      let newOrder = document.createElement("div")
-      newOrder.innerText = "This will be the burger order"
-      burgerOrders.appendChild(newOrder)
-
+    const burgerOrders = document.querySelector(".orders");
+    // create a div that will contain burger order (eventually will be blank notepad picture)
+    let newOrder = document.createElement("div");
+    newOrder.innerText = "This will be the burger order";
+    newOrder.style.padding = "20px"
+    burgerOrders.appendChild(newOrder);
+    console.log("createOrder()", "new order had been created")
   }
 
   startGame() {
     console.log("Burger boss has begun");
     // begin 2 minute timer
     setInterval(startCountdown, 1000);
-    setInterval(this.createOrder, 10000)
+    // setInterval for when orders to be sent in every 10 seconds 
+    setInterval(this.createOrder, 10000);
   }
 
   sendInOrders() {
-    // create a div that will contain burger order (eventually will be blank notepad picture)
-    // setInterval for when orders will be sent in
     // if orders waiting for 8 seconds start flashing red
     // if orders waiting for 15 seconds remove order and deduct points
   }
@@ -262,9 +256,22 @@ const startCountdown = () => {
 
   if (minutes < 0 && seconds < 0) {
     timerHTML.innerHTML = "GAME OVER";
+    clearInterval(game.createOrder)
   }
 };
 
+// function to randomize burger ingredients 
+const randomizeIngredients = () => {
+    let booleanArr = [true, false]
+    for(let i = 0; i < booleanArr.length; i++){
+    //    let randomize = Math.floor(Math.random() * booleanArr.length)
+    //    let booleanValue =  randomize[i]
+    //    console.log(booleanValue)
+    console.log(booleanArr[i])
+    }
+    
+    
+}
 // ===============INITIATE GAME=============== //
-
+randomizeIngredients()
 game.startGame();
