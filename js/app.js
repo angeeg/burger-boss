@@ -26,15 +26,12 @@ const burgerBuilder = document.querySelector(".burger-builder");
 // build a class for the hamburgers
 class Burger {
   constructor() {
-    this.topBun = true;
-    this.patty = true;
-    this.lettuce = false;
-    this.cheese = false;
-    this.tomato = false;
-    this.onion = false;
-    this.bottomBun = true;
+    this.ingredients = [topBun, burgerPatty, bottomBun]
+    this.addOnIngredients = [wholeCheese, wholeLettuce, wholeTomato, wholeOnion, wholePickles]
   }
 
+
+//   METHODS FOR BUILDING BURGER IN WORKING ORDER SECTION 
   addTopBun() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/top-bun.png";
@@ -43,7 +40,7 @@ class Burger {
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
       image.style.display = "none";
-      console.log("burger patty taken off!");
+      console.log("top bun taken off!");
     });
   }
 
@@ -134,7 +131,6 @@ class Burger {
 // instantiate new burger object
 const burger = new Burger();
 console.log(burger);
-console.log(typeof burger.tomato)
 
 // event listeners for whole ingredients while building burger
 topBun.addEventListener("click", burger.addTopBun);
@@ -154,22 +150,22 @@ class Player {
   }
   // playerChefs = []
 
-  addElphyChefToSessionStorage() {
+  addElphyChefToLocalStorage() {
     let chefName = document.querySelector(".elphy-chef-name");
     // when players choose their chef save it to local storage
-    sessionStorage.setItem("player1Chef", `${chefName}`);
+    localStorage.setItem("player1Chef", `${elphyChef}`);
     // when player 2's turn comes pull their avatar from local storage
     // if player 1 ends up winning, pull their avatar out for the winner page
   }
 
-  addPiggyChefToSessionStorage() {
+  addPiggyChefToLocalStorage() {
     let chefName = document.querySelector(".piggy-chef-name");
-    sessionStorage.setItem("player1Chef", `${chefName}`);
+    localStorage.setItem("player1Chef", `${chefName}`);
   }
 
-  addChickyChefToSessionStorage() {
+  addChickyChefToLocalStorage() {
     let chefName = document.querySelector(".chicky-chef-name");
-    sessionStorage.setItem("player1Chef", `${chefName}`);
+    localStorage.setItem("player1Chef", `${chefName}`);
   }
 
   addScoreToSessionStorage() {
@@ -178,25 +174,9 @@ class Player {
   }
 }
 
-// build a class for customer
-class Customer {
-  constructor() {
-    this.order = "";
-    this.timeLimit = ""; // 30 seconds  - customer will wait this long until leaving, if customer leaves without order player loses points
-  }
-
-  createOrder() {
-    // randomly select how many and which ingredients to have on burger
-    // return the order
-  }
-
-  leaveWithBurger() {
-    // make customer disappear from UI
-    // add points to current player's score
-  }
-
-  leaveWithoutBurger() {}
-}
+// instantiating a new player 
+const player = new Player();
+console.log(player)
 
 // build a class for the game
 // game functionality goes in here
@@ -207,10 +187,11 @@ class Game {
     this.timeLimit = ""; // 2 min round
   }
 
+//   NOT WORKING 
   savePlayerInfo() {
-    elphyChef.addEventListener("click", Player.addElphyChefToSessionStorage);
-    piggyChef.addEventListener("click", Player.addPiggyChefToSessionStorage);
-    chickyChef.addEventListener("click", Player.addChickyChefToSessionStorage);
+    elphyChef.addEventListener("click", player.addElphyChefToLocalStorage);
+    piggyChef.addEventListener("click", player.addPiggyChefToLocalStorage);
+    chickyChef.addEventListener("click", player.addChickyChefToLocalStorage);
   }
 
   createOrder() {
@@ -261,17 +242,38 @@ const startCountdown = () => {
 };
 
 // function to randomize burger ingredients 
-const randomizeIngredients = () => {
-    let booleanArr = [true, false]
-    for(let i = 0; i < booleanArr.length; i++){
-    //    let randomize = Math.floor(Math.random() * booleanArr.length)
-    //    let booleanValue =  randomize[i]
-    //    console.log(booleanValue)
-    console.log(booleanArr[i])
-    }
-    
-    
+const randomNum = () => {
+    let nums = [0, 1, 2, 3, 4]
+    let randomNum = Math.floor(Math.random() * nums.length)
+    randomNum = nums[randomNum]
+    return randomNum
+}
+console.log(randomNum())
+const getRandomIngredients = () => {
+
 }
 // ===============INITIATE GAME=============== //
-randomizeIngredients()
 game.startGame();
+
+
+// ================CODE TO COME BACK TO WHEN REFACTORING================= //
+
+// build a class for customer
+// class Customer {
+//   constructor() {
+//     this.order = "";
+//     this.timeLimit = ""; // 30 seconds  - customer will wait this long until leaving, if customer leaves without order player loses points
+//   }
+
+//   createOrder() {
+//     // randomly select how many and which ingredients to have on burger
+//     // return the order
+//   }
+
+//   leaveWithBurger() {
+//     // make customer disappear from UI
+//     // add points to current player's score
+//   }
+
+//   leaveWithoutBurger() {}
+// }
