@@ -5,7 +5,7 @@ const elphyChef = document.querySelector(".elphy-chef-choice");
 const piggyChef = document.querySelector(".piggy-chef-choice");
 const chickyChef = document.querySelector(".chicky-chef-choice");
 
-// game timer in top right corner 
+// game timer in top right corner
 const timerHTML = document.getElementById("countdown-timer");
 
 // whole-ingredients
@@ -26,12 +26,17 @@ const burgerBuilder = document.querySelector(".burger-builder");
 // build a class for the hamburgers
 class Burger {
   constructor() {
-    this.ingredients = [topBun, burgerPatty, bottomBun]
-    this.addOnIngredients = [wholeCheese, wholeLettuce, wholeTomato, wholeOnion, wholePickles]
+    this.ingredients = [topBun, burgerPatty, bottomBun];
+    this.addOnIngredients = [
+      wholeCheese,
+      wholeLettuce,
+      wholeTomato,
+      wholeOnion,
+      wholePickles,
+    ];
   }
 
-
-//   METHODS FOR BUILDING BURGER IN WORKING ORDER SECTION 
+  //   METHODS FOR BUILDING BURGER IN WORKING ORDER SECTION
   addTopBun() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/top-bun.png";
@@ -174,9 +179,9 @@ class Player {
   }
 }
 
-// instantiating a new player 
+// instantiating a new player
 const player = new Player();
-console.log(player)
+console.log(player);
 
 // build a class for the game
 // game functionality goes in here
@@ -187,7 +192,7 @@ class Game {
     this.timeLimit = ""; // 2 min round
   }
 
-//   NOT WORKING 
+  //   NOT WORKING
   savePlayerInfo() {
     elphyChef.addEventListener("click", player.addElphyChefToLocalStorage);
     piggyChef.addEventListener("click", player.addPiggyChefToLocalStorage);
@@ -195,26 +200,40 @@ class Game {
   }
 
   createOrder() {
+    let order = []
+    let burgerIngredients = burger.ingredients;
+    // loop through ingredients and add them to the order
+    for(let i = 0; i < burgerIngredients.length; i++){
+        order.push(burgerIngredients[i])
+    }
+    let addOns = getRandomIngredients();
+    // loop through add on ingredients and add them to order 
+    for(let i = 0; i < addOns.length; i++){
+        order.push(addOns[i])
+    }
+    // return a randomized burger order 
+    return order 
+
+  }
+
+  sendInOrder() {
     const burgerOrders = document.querySelector(".orders");
     // create a div that will contain burger order (eventually will be blank notepad picture)
     let newOrder = document.createElement("div");
-    newOrder.innerText = "This will be the burger order";
-    newOrder.style.padding = "20px"
+    newOrder.innerText = this.createOrder;
+    newOrder.style.padding = "20px";
     burgerOrders.appendChild(newOrder);
-    console.log("createOrder()", "new order had been created")
+    console.log("sendInOrder()", "new order had been created");
+    // if orders waiting for 8 seconds start flashing red
+    // if orders waiting for 15 seconds remove order and deduct points
   }
 
   startGame() {
     console.log("Burger boss has begun");
     // begin 2 minute timer
     setInterval(startCountdown, 1000);
-    // setInterval for when orders to be sent in every 10 seconds 
+    // setInterval for when orders to be sent in every 10 seconds
     setInterval(this.createOrder, 10000);
-  }
-
-  sendInOrders() {
-    // if orders waiting for 8 seconds start flashing red
-    // if orders waiting for 15 seconds remove order and deduct points
   }
 }
 // instantiating new game
@@ -237,34 +256,34 @@ const startCountdown = () => {
 
   if (minutes < 0 && seconds < 0) {
     timerHTML.innerHTML = "GAME OVER";
-    clearInterval(game.createOrder)
+    clearInterval(game.createOrder);
   }
 };
 
-// function to randomize burger ingredients 
+// ====================FUNCTIONS TO SELECT RANDOM INGREDIENTS FOR ORDER==================== //
 
-// generate a random number for the amount of add on ingredients to put on burger 
+// generate a random number for the amount of add on ingredients to put on burger
 const randomNum = () => {
-    let nums = [0, 1, 2, 3, 4, 5]
-    let randomNum = Math.floor(Math.random() * nums.length)
-    randomNum = nums[randomNum]
-    return randomNum
-}
-
+  let nums = [0, 1, 2, 3, 4, 5];
+  let randomNum = Math.floor(Math.random() * nums.length);
+  randomNum = nums[randomNum];
+  return randomNum;
+};
+// function to randomize burger ingredients
 const getRandomIngredients = () => {
-    let ingredients = burger.addOnIngredients
-    // shuffle ingredients array
-    const shuffledIngredients = ingredients.sort(() => 0.5 - Math.random())
-    console.log(shuffledIngredients)
-    let num = randomNum()
-    // get a new array of first randomNum() of ingredients 
-    let randomIngredients = shuffledIngredients.slice(0, num)
-    return randomIngredients
-}
-console.log(getRandomIngredients())
-// ===============INITIATE GAME=============== //
-game.startGame();
+  let ingredients = burger.addOnIngredients;
+  // shuffle ingredients array
+  const shuffledIngredients = ingredients.sort(() => 0.5 - Math.random());
+  // console.log(shuffledIngredients)
+  let num = randomNum();
+  // get a new array of first randomNum() of ingredients
+  let randomIngredients = shuffledIngredients.slice(0, num);
+  return randomIngredients;
+};
 
+// ===============INITIATE GAME=============== //
+game.createOrder();
+game.startGame();
 
 // ================CODE TO COME BACK TO WHEN REFACTORING================= //
 
