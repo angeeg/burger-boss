@@ -8,6 +8,9 @@ const chickyChef = document.querySelector(".chicky-chef-choice");
 // game timer in top right corner
 const timerHTML = document.getElementById("countdown-timer");
 
+// player's score 
+const playerScore = document.getElementById("player-score")
+
 // whole-ingredients
 const topBun = document.querySelector(".top-bun");
 const burgerPatty = document.querySelector(".burger-patty");
@@ -256,10 +259,18 @@ class Game {
       listItem.innerHTML = ingredient.className;
       list.appendChild(listItem);
     }
+    list.style.padding = "20px";
+    list.style.background = "honeydew"
+    list.style.height = "70px"
+    list.style.width = "40px"
+    list.style.overflow = "scroll"
+    list.style.textAlign = "left"
+    list.style.marginTop = "10px"
+    list.style.margin = "10px"
 
     order.appendChild(list);
     order.className = "order";
-    order.style.padding = "20px";
+   
     burgerOrders.appendChild(order);
     console.log("sendInOrder()", `${order}`);
     // if orders waiting for 8 seconds start flashing red
@@ -288,6 +299,9 @@ class Game {
     while(burgerBuilder.firstChild){
         burgerBuilder.removeChild(burgerBuilder.firstChild)
     }
+
+
+    playerScore.innerHTML = ` SCORE ${player.score}`
 
     workingOrder = [];
 
