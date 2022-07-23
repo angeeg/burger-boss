@@ -211,3 +211,17 @@ td {
   width: 50px;
   margin-top: -20%;
 }
+
+.serve-btn{
+  border-radius: 5px;
+  background-color: rgb(42, 176, 5);
+  font-family: "MyWebFont";
+  font-size: 16px;
+  width: 70px;
+  height: 20px;
+  text-align: center;
+}
+
+.serve-btn:hover{
+  opacity: 50%;
+}

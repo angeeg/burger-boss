@@ -21,12 +21,12 @@ const bottomBun = document.querySelector(".bottom-bun");
 const burgerOrders = document.querySelector(".orders");
 // working order section
 const burgerBuilder = document.querySelector(".burger");
+const workingBurger = document.querySelector(".burger-builder");
 // empty arr to hold ingredients added to working order
-let workingOrder = []
+let workingOrder = [];
 
-// serve button 
-const serveBtn = document.querySelector(".serve-btn")
-
+// serve button
+const serveBtn = document.querySelector(".serve-btn");
 
 // ======================= CLASSES ======================= //
 
@@ -47,11 +47,12 @@ class Burger {
   addTopBun() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/top-bun.png";
-    image.className = "top-bun-builder bun";
+    image.className = "builder-img top-bun-builder bun";
+    // workingBurger.appendChild(burgerBuilder)
     burgerBuilder.appendChild(image);
     console.log("top bun added!");
-    workingOrder.push("bun")
-    console.log(workingOrder)
+    workingOrder.push("bun");
+    console.log(workingOrder);
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
       burgerBuilder.removeChild(image);
@@ -62,11 +63,11 @@ class Burger {
   addBurgerPatty() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/burger.png";
-    image.className = "burger-patty-builder patty";
+    image.className = "builder-img burger-patty-builder patty";
     burgerBuilder.appendChild(image);
     console.log("burger added!");
-    workingOrder.push("patty")
-    console.log(workingOrder)
+    workingOrder.push("patty");
+    console.log(workingOrder);
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
       burgerBuilder.removeChild(image);
@@ -77,11 +78,11 @@ class Burger {
   addCheese() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/yellow-cheese.png";
-    image.className = "cheese-builder cheese";
+    image.className = "builder-img cheese-builder cheese";
     burgerBuilder.appendChild(image);
     console.log("cheese added!");
-    workingOrder.push("cheese")
-    console.log(workingOrder)
+    workingOrder.push("cheese");
+    console.log(workingOrder);
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
       burgerBuilder.removeChild(image);
@@ -92,11 +93,11 @@ class Burger {
   addLettuce() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/lettuce.png";
-    image.className = "lettuce-builder lettuce";
+    image.className = "builder-img lettuce-builder lettuce";
     burgerBuilder.appendChild(image);
     console.log("lettuce added!");
-    workingOrder.push("lettuce")
-    console.log(workingOrder)
+    workingOrder.push("lettuce");
+    console.log(workingOrder);
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
       burgerBuilder.removeChild(image);
@@ -107,11 +108,11 @@ class Burger {
   addTomato() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/tomato.png";
-    image.className = "tomato-builder tomato";
+    image.className = "builder-img tomato-builder tomato";
     burgerBuilder.appendChild(image);
     console.log("tomato added!");
-    workingOrder.push("tomato")
-    console.log(workingOrder)
+    workingOrder.push("tomato");
+    console.log(workingOrder);
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
       burgerBuilder.removeChild(image);
@@ -122,11 +123,11 @@ class Burger {
   addOnion() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/onion.png";
-    image.className = "onion-builder onion";
+    image.className = "builder-img onion-builder onion";
     burgerBuilder.appendChild(image);
     console.log("onion added!");
-    workingOrder.push("onion")
-    console.log(workingOrder)
+    workingOrder.push("onion");
+    console.log(workingOrder);
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
       burgerBuilder.removeChild(image);
@@ -137,11 +138,11 @@ class Burger {
   addPickles() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/pickles.png";
-    image.className = "pickles-builder pickles";
+    image.className = "builder-img pickles-builder pickles";
     burgerBuilder.appendChild(image);
     console.log("pickles added!");
-    workingOrder.push("pickles")
-    console.log(workingOrder)
+    workingOrder.push("pickles");
+    console.log(workingOrder);
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
       burgerBuilder.removeChild(image);
@@ -152,11 +153,11 @@ class Burger {
   addBottomBun() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/bottom-bun.png";
-    image.className = "bottom-bun-builder bun";
+    image.className = "builder-img bottom-bun-builder bun";
     burgerBuilder.appendChild(image);
     console.log("bottom-bun added!");
-    workingOrder.push("bun")
-    console.log(workingOrder)
+    workingOrder.push("bun");
+    console.log(workingOrder);
     // erase ingredient from working order if clicked on
     image.addEventListener("click", () => {
       burgerBuilder.removeChild(image);
@@ -171,33 +172,33 @@ console.log(burger);
 // build a class for players
 class Player {
   constructor() {
-    this.player = "";
-    this.avatar = "";
-  }
-  // playerChefs = []
-
-  addElphyChefToLocalStorage() {
-    let chefName = document.querySelector(".elphy-chef-name");
-    // when players choose their chef save it to local storage
-    localStorage.setItem("player1Chef", `${elphyChef}`);
-    // when player 2's turn comes pull their avatar from local storage
-    // if player 1 ends up winning, pull their avatar out for the winner page
-  }
-
-  addPiggyChefToLocalStorage() {
-    let chefName = document.querySelector(".piggy-chef-name");
-    localStorage.setItem("player1Chef", `${chefName}`);
-  }
-
-  addChickyChefToLocalStorage() {
-    let chefName = document.querySelector(".chicky-chef-name");
-    localStorage.setItem("player1Chef", `${chefName}`);
+    this.name = "";
+    this.score = "";
   }
 
   addScoreToSessionStorage() {
     // after the player's round save their score to local storage
     // at the end of the game compare both players' scores to determine winner
   }
+  // playerChefs = []
+
+  //   addElphyChefToLocalStorage() {
+  //     let chefName = document.querySelector(".elphy-chef-name");
+  //     // when players choose their chef save it to local storage
+  //     localStorage.setItem("player1Chef", `${elphyChef}`);
+  //     // when player 2's turn comes pull their avatar from local storage
+  //     // if player 1 ends up winning, pull their avatar out for the winner page
+  //   }
+
+  //   addPiggyChefToLocalStorage() {
+  //     let chefName = document.querySelector(".piggy-chef-name");
+  //     localStorage.setItem("player1Chef", `${chefName}`);
+  //   }
+
+  //   addChickyChefToLocalStorage() {
+  //     let chefName = document.querySelector(".chicky-chef-name");
+  //     localStorage.setItem("player1Chef", `${chefName}`);
+  //   }
 }
 
 // instantiating a new player
@@ -239,7 +240,8 @@ class Game {
   sendInOrder() {
     let newOrder = game.createOrder();
     // console.log(newOrder)
-    
+    console.log(newOrder);
+
     // create a div that will contain burger order
     let order = document.createElement("div");
     // create a list to display ingredients
@@ -256,35 +258,50 @@ class Game {
     }
 
     order.appendChild(list);
-    order.className = "order"
+    order.className = "order";
     order.style.padding = "20px";
     burgerOrders.appendChild(order);
     console.log("sendInOrder()", `${order}`);
     // if orders waiting for 8 seconds start flashing red
     // if orders waiting for 15 seconds remove order and deduct points
+    // console.log(workingOrder)
   }
 
-  serveOrder(){
-      console.log("servebtn", "ORDER BEING SERVED")
-    //   arr of ingredients in order 
+  serveOrder() {
+    console.log("servebtn", "ORDER BEING SERVED");
+    //   arr of ingredients in order
     let orderArr = game.createOrder();
-
-    let order = document.querySelector(".order")
-    burgerOrders.removeChild(burgerOrders.firstElementChild)
+    let image = document.querySelector(".builder-img")
     
 
+    if(orderArr.length === workingOrder.length){
+        player.score += 10
+    } else {
+        player.score -= 5
+    }
+    console.log(orderArr.length, workingOrder.length)
+    console.log(player.score)
 
-    // for(let i = 0; i < orderArr.length; i++){
-    //     for(let j = 0; j < workingOrder.length; j++){
-    //         if(orderArr[i] === workingOrder[j]){  
-    //             let order = document.getElementsById("order")
-    //             burgerOrders.removeChild(order)
-    //         }
-    //     }
-    // }
+    burgerOrders.removeChild(burgerOrders.firstElementChild);
+    // workingBurger.remove(burgerBuilder);
 
-    workingOrder = []
+    while(burgerBuilder.firstChild){
+        burgerBuilder.removeChild(burgerBuilder.firstChild)
+    }
+
+    workingOrder = [];
+
+    // console.log(workingOrder)
   }
+
+  // for(let i = 0; i < orderArr.length; i++){
+  //     for(let j = 0; j < workingOrder.length; j++){
+  //         if(orderArr[i] === workingOrder[j]){
+  //             let order = document.getElementsById("order")
+  //             burgerOrders.removeChild(order)
+  //         }
+  //     }
+  // }
 
   startGame() {
     console.log("Burger boss has begun");
@@ -343,7 +360,6 @@ const getRandomIngredients = () => {
 console.log(game.createOrder());
 game.startGame();
 
-
 // =================EVENT LISTENERS===================== //
 
 // event listeners for whole ingredients while building burger
@@ -356,5 +372,5 @@ wholeOnion.addEventListener("click", burger.addOnion);
 wholePickles.addEventListener("click", burger.addPickles);
 bottomBun.addEventListener("click", burger.addBottomBun);
 
-// serve btn listener 
-serveBtn.addEventListener("click", game.serveOrder)
+// serve btn listener
+serveBtn.addEventListener("click", game.serveOrder);
