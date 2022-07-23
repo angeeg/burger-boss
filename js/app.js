@@ -242,16 +242,26 @@ const startCountdown = () => {
 };
 
 // function to randomize burger ingredients 
+
+// generate a random number for the amount of add on ingredients to put on burger 
 const randomNum = () => {
-    let nums = [0, 1, 2, 3, 4]
+    let nums = [0, 1, 2, 3, 4, 5]
     let randomNum = Math.floor(Math.random() * nums.length)
     randomNum = nums[randomNum]
     return randomNum
 }
-console.log(randomNum())
-const getRandomIngredients = () => {
 
+const getRandomIngredients = () => {
+    let ingredients = burger.addOnIngredients
+    // shuffle ingredients array
+    const shuffledIngredients = ingredients.sort(() => 0.5 - Math.random())
+    console.log(shuffledIngredients)
+    let num = randomNum()
+    // get a new array of first randomNum() of ingredients 
+    let randomIngredients = shuffledIngredients.slice(0, num)
+    return randomIngredients
 }
+console.log(getRandomIngredients())
 // ===============INITIATE GAME=============== //
 game.startGame();
 

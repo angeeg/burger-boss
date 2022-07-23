@@ -19,3 +19,6 @@ whole-pickles
 
 kitchen background 
 <a href='https://www.freepik.com/vectors/kitchen-cartoon'>Kitchen cartoon vector created by vectorpocket - www.freepik.com</a>
+
+helped with randomizing burger ingredients 
+https://stackoverflow.com/questions/19269545/how-to-get-a-number-of-random-elements-from-an-array
