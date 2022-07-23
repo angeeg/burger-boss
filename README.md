@@ -23,7 +23,8 @@ As a player, I want the order to disappear once their order is fulfilled.
   * Javascript
 
 ## INSTALLATION
-Follow the github pages link to enjoy in your browser.
+Follow the github pages link, <a href="https://angeeg.github.io/burger-boss/"> BURGER BOSS</a>, to enjoy in your browser.
+
 
 ## UNSOLVED PROBLEMS
 
