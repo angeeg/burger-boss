@@ -19,7 +19,7 @@ const wholePickles = document.querySelector(".whole-pickles");
 const bottomBun = document.querySelector(".bottom-bun");
 
 // working order section
-const burgerBuilder = document.querySelector(".burger-builder");
+const burgerBuilder = document.querySelector(".burger");
 
 // ======================= CLASSES ======================= //
 
@@ -40,6 +40,7 @@ class Burger {
   addTopBun() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/top-bun.png";
+    image.className = "top-bun-builder"
     burgerBuilder.appendChild(image);
     console.log("top bun added!");
     // erase ingredient from working order if clicked on
@@ -52,6 +53,7 @@ class Burger {
   addBurgerPatty() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/burger.png";
+    image.className = "burger-patty-builder"
     burgerBuilder.appendChild(image);
     console.log("burger added!");
     // erase ingredient from working order if clicked on
@@ -64,6 +66,7 @@ class Burger {
   addCheese() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/yellow-cheese.png";
+    image.className = "cheese-builder"
     burgerBuilder.appendChild(image);
     console.log("cheese added!");
     // erase ingredient from working order if clicked on
@@ -76,6 +79,7 @@ class Burger {
   addLettuce() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/lettuce.png";
+    image.className = "lettuce-builder"
     burgerBuilder.appendChild(image);
     console.log("lettuce added!");
     // erase ingredient from working order if clicked on
@@ -88,6 +92,7 @@ class Burger {
   addTomato() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/tomato.png";
+    image.className = "tomato-builder"
     burgerBuilder.appendChild(image);
     console.log("tomato added!");
     // erase ingredient from working order if clicked on
@@ -100,6 +105,7 @@ class Burger {
   addOnion() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/onion.png";
+    image.className = "onion-builder"
     burgerBuilder.appendChild(image);
     console.log("onion added!");
     // erase ingredient from working order if clicked on
@@ -112,6 +118,7 @@ class Burger {
   addPickles() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/pickles.png";
+    image.className = "pickles-builder"
     burgerBuilder.appendChild(image);
     console.log("pickles added!");
     // erase ingredient from working order if clicked on
@@ -124,6 +131,7 @@ class Burger {
   addBottomBun() {
     let image = document.createElement("img");
     image.src = "css/assets/images/ingredients/bottom-bun.png";
+    image.className = "bottom-bun-builder"
     burgerBuilder.appendChild(image);
     console.log("bottom-bun added!");
     // erase ingredient from working order if clicked on
@@ -223,10 +231,12 @@ class Game {
     let order = document.createElement("div");
     // create a list to display ingredients 
     let list = document.createElement("ul");
+
     // loop through order to create list item for each ingredient
     for (let i = 0; i < newOrder.length; i++) {
       let listItem = document.createElement("li");
-    //   listItem.style.listStyle = "none";
+      listItem.style.listStyle = "none";
+      listItem.style.fontSize = "12px"
       let ingredient = newOrder[i];
       listItem.innerHTML = ingredient.className
       list.appendChild(listItem);
