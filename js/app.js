@@ -200,30 +200,42 @@ class Game {
   }
 
   createOrder() {
-    let order = []
+    let order = [];
     let burgerIngredients = burger.ingredients;
     // loop through ingredients and add them to the order
-    for(let i = 0; i < burgerIngredients.length; i++){
-        order.push(burgerIngredients[i])
+    for (let i = 0; i < burgerIngredients.length; i++) {
+      order.push(burgerIngredients[i]);
     }
     let addOns = getRandomIngredients();
-    // loop through add on ingredients and add them to order 
-    for(let i = 0; i < addOns.length; i++){
-        order.push(addOns[i])
+    // loop through add on ingredients and add them to order
+    for (let i = 0; i < addOns.length; i++) {
+      order.push(addOns[i]);
     }
-    // return a randomized burger order 
+    // return randomized order 
     return order 
-
   }
 
   sendInOrder() {
+    let newOrder = game.createOrder();
+    // console.log(newOrder)
     const burgerOrders = document.querySelector(".orders");
-    // create a div that will contain burger order (eventually will be blank notepad picture)
-    let newOrder = document.createElement("div");
-    newOrder.innerText = this.createOrder;
-    newOrder.style.padding = "20px";
-    burgerOrders.appendChild(newOrder);
-    console.log("sendInOrder()", "new order had been created");
+    // create a div that will contain burger order
+    let order = document.createElement("div");
+    // create a list to display ingredients 
+    let list = document.createElement("ul");
+    // loop through order to create list item for each ingredient
+    for (let i = 0; i < newOrder.length; i++) {
+      let listItem = document.createElement("li");
+    //   listItem.style.listStyle = "none";
+      let ingredient = newOrder[i];
+      listItem.innerHTML = ingredient.className
+      list.appendChild(listItem);
+    }
+   
+    order.appendChild(list);
+    order.style.padding = "20px";
+    burgerOrders.appendChild(order);
+    console.log("sendInOrder()", `${order}`);
     // if orders waiting for 8 seconds start flashing red
     // if orders waiting for 15 seconds remove order and deduct points
   }
@@ -233,7 +245,7 @@ class Game {
     // begin 2 minute timer
     setInterval(startCountdown, 1000);
     // setInterval for when orders to be sent in every 10 seconds
-    setInterval(this.createOrder, 10000);
+    setInterval(this.sendInOrder, 10000);
   }
 }
 // instantiating new game
@@ -282,7 +294,7 @@ const getRandomIngredients = () => {
 };
 
 // ===============INITIATE GAME=============== //
-game.createOrder();
+console.log(game.createOrder());
 game.startGame();
 
 // ================CODE TO COME BACK TO WHEN REFACTORING================= //
